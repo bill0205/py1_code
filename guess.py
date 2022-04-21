@@ -20,7 +20,10 @@ import random
 r = random.randint(1,50)
 #random工具箱里randint随机整数，从1-100中随机产生
 #input应该放在哪里
+
+count = 0
 while True:
+	count += 1 #count = count +1
 	num = input('请输入你猜的数字（1-50内）：')
 	num = int(num)
 	if num == r:
@@ -30,5 +33,6 @@ while True:
 		print('猜错了，比答案大')
 	elif num < r:
 		print('猜错了，比答案小')
+	print('这是你猜的第', count, '次')
 	
-
+# 进阶：加入技术功能

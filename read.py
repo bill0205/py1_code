@@ -51,3 +51,15 @@ for d in data:
 	sum_len += len(d)
 print('留言的平均长度为', sum_len/len(data))
 
+
+#对清单做筛选 len(data[i])
+#
+new = []
+
+for d in data: #d是字串，data是清单
+	#for loop 一笔笔读取原始资料
+	if len(d) < 100:
+		new.append(d)
+		#不需要 new = new.append(d)
+print('一共有', len(new), '笔留言长度小于100')
+print(new[0])

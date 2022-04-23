@@ -2,21 +2,29 @@
 #用清单储存使用者输入的东西
 #清单怎么变成二维的，又装商品名又装价格
 
-#读取档案
+#读取档案，检查档案是否存在
+import os #operating system
+
+
 products = []
-with open('products.csv','r',encoding= 'utf-8') as f:
-	for line in f:
-		if '商品' in line:
-			# '商品，价格' in line 不ok
-			continue #跳到下一回
-			#使用continue常常和for loop
-			#什么情况我跳过这个回合
-		name,price = line.strip().split(',')
-		#print(name)
-		products.append([name,price])
-print(products)
+if os.path.isfile('products.csv'):
+	#只要查得到的都不用背
+	print('yeah!找到档案了')
+	with open('products.csv','r',encoding= 'utf-8') as f:
+		for line in f:
+			if '商品' in line:
+				# '商品，价格' in line 不ok
+				continue #跳到下一回
+				#使用continue常常和for loop
+				#什么情况我跳过这个回合
+			name,price = line.strip().split(',')
+			#print(name)
+			products.append([name,price])
+	print(products)
 		#split切割标准
 		#strip()去换行+空格 记得每一行有换行的符号
+else:
+	print('找不到档案...')
 
 
 
